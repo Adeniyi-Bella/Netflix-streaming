@@ -1,6 +1,6 @@
 # Netflix-clone 
 
-## This is a netflix clone built with next.js, typescript and tailwind.css. 
+### This is a netflix clone built with next.js, typescript and tailwind.css. Firebase auth hooks was used to authenticate users. 
 
 - Live App: [here](https://netflix-streaming.vercel.app/login) . 
 
