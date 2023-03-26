@@ -1,6 +1,8 @@
 module.exports = ({
   reactStrictMode: true,
   images: {
-    domains: ['image.tmdb.org'],
+    dangerouslyAllowSVG: true,
+    domains: ['image.tmdb.org',
+     'rb.gy'],
   },
 })
