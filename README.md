@@ -4,7 +4,7 @@
 
 This is a netflix clone built with next.js, typescript and tailwind.css. 
 
-Live App: [here](https://netflix-clone-tan-three.vercel.app/) . You would get a warning saying the website is not secured. You can also clone the repo and start on local host. 
+Live App: [here](https://netflix-streaming.vercel.app/login) . 
 
 # Getting Started on local
 
