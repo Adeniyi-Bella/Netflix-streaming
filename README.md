@@ -2,6 +2,8 @@
 
 ## This is a netflix clone built with next.js, typescript and tailwind.css. 
 
+- Live App: [here](https://netflix-streaming.vercel.app/login) . 
+
 ![netflix](https://user-images.githubusercontent.com/37347588/227012856-1480fa40-444e-4c1e-95d1-3c58d13a141d.png)
 
 
