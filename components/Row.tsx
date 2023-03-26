@@ -1,37 +1,39 @@
-
 //scrool ar icons from heroicons
-import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/24/outline'
+import { ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/24/outline";
 // import { DocumentData } from 'firebase/firestore'
-import { useRef, useState } from 'react'
+import { useRef, useState } from "react";
 //movie interface from typings
-import { Movie } from '../typings'
+import { Movie } from "../typings";
 //thumbnail component for each movie
-import Thumbnail from './Thumbnail'
+import Thumbnail from "./Thumbnail";
 
 //create a prop interface based on movies array and title
 interface Props {
-  title: string
-  movies: Movie[] 
-//   | DocumentData[]
+  title: string;
+  movies: Movie[];
+  //   | DocumentData[]
 }
 
 //destructure the props and set them to types props
 function Row({ title, movies }: Props) {
-    //useRef to get the current value of the scrollLeft property
-  const rowRef = useRef<HTMLDivElement>(null)
+  //useRef to get the current value of the scrollLeft property
+  const rowRef = useRef<HTMLDivElement>(null);
   //set ismoved to true when user clicks on the scroll icon
-  const [isMoved, setIsMoved] = useState(false)
+  const [isMoved, setIsMoved] = useState(false);
 
   const handleClick = (direction: string) => {
-    setIsMoved(true)
+    setIsMoved(true);
     if (rowRef.current) {
-        //get the current value of scrollLeft and clientWidth by destructuring
+      //get the current value of scrollLeft and clientWidth by destructuring
       const { scrollLeft, clientWidth } = rowRef.current;
 
-      const scrollTo = direction === 'left'? scrollLeft - clientWidth : scrollLeft + clientWidth;
-      rowRef.current.scrollTo({ left: scrollTo, behavior: 'smooth' })
+      const scrollTo =
+        direction === "left"
+          ? scrollLeft - clientWidth
+          : scrollLeft + clientWidth;
+      rowRef.current.scrollTo({ left: scrollTo, behavior: "smooth" });
     }
-  }
+  };
 
   return (
     <div className="h-40 space-y-0.5 md:space-y-2">
@@ -41,26 +43,26 @@ function Row({ title, movies }: Props) {
       <div className="group relative md:-ml-2">
         <ChevronLeftIcon
           className={`absolute top-0 bottom-0 left-2 z-40 m-auto h-9 w-9 cursor-pointer opacity-0 transition hover:scale-125 group-hover:opacity-100 ${
-            !isMoved && 'hidden'
+            !isMoved && "hidden"
           }`}
-          onClick={() => handleClick('left')}
+          onClick={() => handleClick("left")}
         />
         <div
           className="flex items-center space-x-0.5 overflow-x-scroll scrollbar-hide md:space-x-2.5 md:p-2"
           ref={rowRef}
         >
-            {/* //map through the movies array and pass each movie to the thumbnail component */}
+          {/* //map through the movies array and pass each movie to the thumbnail component */}
           {movies.map((movie) => (
             <Thumbnail key={movie.id} movie={movie} />
           ))}
         </div>
         <ChevronRightIcon
           className="absolute top-0 bottom-0 right-2 z-40 m-auto h-9 w-9 cursor-pointer opacity-0 transition hover:scale-125 group-hover:opacity-100"
-          onClick={() => handleClick('right')}
+          onClick={() => handleClick("right")}
         />
       </div>
     </div>
-  )
+  );
 }
 
-export default Row
+export default Row;
